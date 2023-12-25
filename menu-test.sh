@@ -1,6 +1,6 @@
 #! /bin/bash
-# By BlueSkyXN
-#https://github.com/BlueSkyXN/SKY-BOX
+# By WJQSERVER-STUDIO_WJQSERVER
+#https://github.com/WJQSERVER/shell
 
 #彩色
 red(){
