@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# 更新软件包
+sudo apt update
+sudo apt upgrade -y
+
+# 安装 curl
+sudo apt install -y curl
+
 echo "请选择要执行的脚本:"
 echo "1. 部署 speedtest-x"
 echo "2. 部署 Docker"
