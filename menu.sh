@@ -53,4 +53,3 @@ case $choice in
     ;;
 esac
 
-echo "部署完成！"
