@@ -42,6 +42,7 @@ case $choice in
   3)
     echo "正在执行部署 SWAP 的脚本..."
     wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+    ;;
   4)
     echo "退出脚本"
     exit 0
