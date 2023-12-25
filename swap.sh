@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# 检查是否已经存在 Swap 文件
+if grep -q "swapfile" /etc/fstab; then
+  echo "Swap 文件已存在，是否删除？(y/n)"
+  read answer
+  if [ "$answer" == "y" ]; then
+    # 停用和删除 Swap 文件
+    sudo swapoff /swapfile
+    sudo rm /swapfile
+    sudo sed -i '/swapfile/d' /etc/fstab
+    echo "Swap 文件已删除！"
+  else
+    echo "Swap 文件未删除。"
+  fi
+fi
+
+echo "是否创建新的 Swap 文件？(y/n)"
+read answer
+if [ "$answer" == "y" ]; then
+  echo "请输入 Swap 文件的大小 (例如 512M，1G)："
+  read swap_size
+
+  # 提取 Swap 文件大小和单位
+  swap_size_value=${swap_size%[MG]}
+  swap_size_unit=${swap_size: -1}
+
+  # 根据单位计算 Swap 文件大小
+  if [ "$swap_size_unit" == "G" ]; then
+    swap_size_bytes=$(($swap_size_value * 1024 * 1024))
+  else
+    swap_size_bytes=$(($swap_size_value * 1024))
+  fi
+
+  # 创建 Swap 文件
+  echo "正在创建 Swap 文件..."
+  sudo fallocate -l "$swap_size_bytes" /swapfile
+  sudo chmod 600 /swapfile
+  sudo mkswap /swapfile
+  sudo swapon /swapfile
+
+  # 启用 Swap 文件
+  echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
+  sudo sysctl vm.swappiness=10
+  sudo sysctl vm.vfs_cache_pressure=50
+
+  # 更新系统配置
+  sudo sysctl -p
+
+  echo "Swap 文件创建并启用成功！"
+else
+  echo "未创建新的 Swap 文件。"
+fi
