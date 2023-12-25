@@ -25,7 +25,8 @@ sudo apt install -y curl
 echo "请选择要执行的脚本:"
 echo "1. 部署 speedtest-x"
 echo "2. 部署 Docker"
-echo "3. 退出"
+echo "3. 添加 SWAP
+echo "4. 退出"
 
 read choice
 
@@ -39,6 +40,9 @@ case $choice in
     wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.sh && chmod +x docker.sh && clear && ./docker.sh
     ;;
   3)
+    echo "正在执行部署 SWAP 的脚本..."
+    wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+  4)
     echo "退出脚本"
     exit 0
     ;;
