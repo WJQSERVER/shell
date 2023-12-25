@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#安装依赖
+apt install util-linux
+
 # 检查是否已经存在 Swap 文件
 if grep -q "swapfile" /etc/fstab; then
   echo "Swap 文件已存在，是否删除？(y/n)"
