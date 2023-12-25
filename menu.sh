@@ -17,7 +17,7 @@ read choice
 case $choice in
   1)
     echo "正在执行部署 speedtest-x 的脚本..."
-    ./deploy_speedtest_x.sh
+    docker run -d -e MAX_LOG_COUNT=200 -e SAME_IP_MULTI_LOGS=true -e IP_SERVICE=ipinfo.io -e WEBPORT=9001 --network host -it badapple9/speedtest-x
     ;;
   2)
     echo "正在执行部署 Docker 的脚本..."
