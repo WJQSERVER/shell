@@ -27,24 +27,22 @@ if [ "$answer" == "y" ]; then
 
   # 根据单位计算 Swap 文件大小
   if [ "$swap_size_unit" == "G" ]; then
-    swap_size_bytes=$(($swap_size_value * 1024 * 1024))
+    swap_size_mb=$(($swap_size_value * 1024))
   else
-    swap_size_bytes=$(($swap_size_value * 1024))
+    swap_size_mb=$swap_size_value
   fi
 
   # 创建 Swap 文件
   echo "正在创建 Swap 文件..."
-  sudo fallocate -l "$swap_size_bytes" /swapfile
+  sudo fallocate -l "$swap_size_mb"M /swapfile
   sudo chmod 600 /swapfile
   sudo mkswap /swapfile
   sudo swapon /swapfile
 
   # 启用 Swap 文件
   echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
-  sudo sysctl vm.swappiness=10
-  sudo sysctl vm.vfs_cache_pressure=50
-
-  # 更新系统配置
+  echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+  echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
   sudo sysctl -p
 
   echo "Swap 文件创建并启用成功！"
