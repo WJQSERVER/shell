@@ -25,7 +25,7 @@ sudo apt install -y curl
 echo "请选择要执行的脚本:"
 echo "1. 部署 speedtest-x"
 echo "2. 部署 Docker"
-echo "3. 添加 SWAP
+echo "3. 添加 SWAP"
 echo "4. 退出"
 
 read choice
