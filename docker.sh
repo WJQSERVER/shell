@@ -17,3 +17,21 @@ sudo chmod +x /usr/local/bin/docker-compose
 # 验证 Docker 和 Docker Compose 安装
 docker --version
 docker-compose --version
+
+#日志大小及IPV6设置
+cat > /etc/docker/daemon.json <<EOF
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "20m",
+        "max-file": "3"
+    },
+    "ipv6": true,
+    "fixed-cidr-v6": "fd00:dead:beef:c0::/80",
+    "experimental":true,
+    "ip6tables":true
+}
+EOF
+
+#重启Docker
+systemctl restart docker
