@@ -21,7 +21,7 @@ case $choice in
     ;;
   2)
     echo "正在执行部署 Docker 的脚本..."
-    ./deploy_docker.sh
+    wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.sh && chmod +x docker.sh && clear && ./docker.sh
     ;;
   3)
     echo "退出脚本"
