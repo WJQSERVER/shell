@@ -74,7 +74,7 @@ function start_menu(){
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
         1 )
-           docker
+           dockersh
 	;;
         2 )
            iptsh
