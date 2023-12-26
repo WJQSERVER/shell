@@ -17,13 +17,13 @@ if [[ $confirm != [Yy] ]]; then
 fi
 
 # 确认执行操作
-read -p "此操作将安装 wget, curl, vim 等常用软件包并进行更新。是否继续？(y/n) " choice
+read -p "此操作将安装 wget, curl, vim 等常用软件包并进行更新。是否继续？(不进行此操作可能造成脚本异常)(y/n) " choice
 
 if [[ $choice == "y" ]]; then
   # 安装软件包
   apt update
   sudo apt upgrade -y
-  apt install wget curl vim git -y
+  apt install wget curl vim git sudo -y
 fi
 
 #彩色
