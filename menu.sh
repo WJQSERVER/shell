@@ -45,6 +45,7 @@ wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.
 #SWAP一键脚本
 function swapsh(){
 wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+}
 
 #主菜单
 function start_menu(){
