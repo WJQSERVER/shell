@@ -16,6 +16,15 @@ if [[ $confirm != [Yy] ]]; then
     exit 1
 fi
 
+# 确认执行操作
+read -p "此操作将安装 wget, curl, vim 等常用软件包并进行更新。是否继续？(y/n) " choice
+
+if [[ $choice == "y" ]]; then
+  # 安装软件包
+  apt update
+  apt install wget curl vim git -y
+fi
+
 #彩色
 red(){
     echo -e "\033[31m\033[01m$1\033[0m"
