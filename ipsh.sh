@@ -1,27 +1,31 @@
 #!/bin/bash
 
 # 获取本地IPv4地址
-ipv4_address=$(ip -4 addr show | grep inet | awk '{print $2}' | grep -v '127.0.0.1')
+local_ipv4=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 # 获取本地IPv6地址
-ipv6_address=$(ip -6 addr show | grep inet6 | grep -v 'fe80' | awk '{print $2}' | awk -F'/' '{print $1}')
+local_ipv6=$(ip -6 addr show eth0 | grep -oP '(?<=inet6\s)[0-9a-fA-F:]+')
 
-# 获取网关
-gateway=$(ip route | grep default | awk '{print $3}')
+# 获取默认网关
+gateway=$(ip route | awk '/default/ {print $3}')
 
 # 获取子网掩码
-subnet_mask=$(ip -4 addr show | grep inet | awk '{print $2}' | grep -v '127.0.0.1' | awk -F'/' '{print $2}')
+subnet_mask=$(ifconfig eth0 | awk '/netmask/ {print $4}')
+
+# 使用ip.sb获取公网IPv4地址
+public_ipv4=$(curl -s4 https://ip.sb/ip)
+
+# 使用ip.sb获取公网IPv6地址
+public_ipv6=$(curl -s6 https://ip.sb/ip)
 
 # 获取DNS服务器
-dns_servers=$(grep "nameserver" /etc/resolv.conf | awk '{print $2}' | tr '\n' ' ')
+dns_servers=$(cat /etc/resolv.conf | awk '/^nameserver/ {print $2}')
 
-# 获取公网IP地址
-public_ip=$(curl -s https://api.ipify.org)
-
-echo "本地网络信息："
-echo "IPv4地址: $ipv4_address"
-echo "IPv6地址: $ipv6_address"
-echo "网关: $gateway"
+# 输出结果
+echo "本地IPv4地址: $local_ipv4"
+echo "本地IPv6地址: $local_ipv6"
+echo "默认网关: $gateway"
 echo "子网掩码: $subnet_mask"
+echo "公网IPv4地址: $public_ipv4"
+echo "公网IPv6地址: $public_ipv6"
 echo "DNS服务器: $dns_servers"
-echo "公网IP地址: $public_ip"
