@@ -88,7 +88,7 @@ function start_menu(){
     green " 18. Unavailable"
     green " 19. Unavailable"
     yellow " --------------------------------------------------"
-    green " 21. Unavailable"
+    green " 21. Nginx Proxy Manager一键部署脚本"
     green " 22. Unavailable"
     green " 23. Unavailable"
     green " 24. Unavailable"
