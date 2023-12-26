@@ -59,7 +59,7 @@ wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh &
 
 #Nginx Proxy Manager一键部署脚本
 function npmsh(){
-wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+wget -O nginxproxymanager.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/nginxproxymanager.sh && chmod +x nginxproxymanager.sh && clear && ./nginxproxymanager.sh
 }
 
 #主菜单
