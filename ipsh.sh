@@ -8,8 +8,8 @@ subnet_mask=$(ifconfig eth0 | grep -oP '(?<=Mask:)\d+(\.\d+){3}')
 dns_servers=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\s)\d+(\.\d+){3}')
 
 # 获取公网IP
-public_ipv4=$(curl -s https://ipapi.co/ip)
-public_ipv6=$(curl -s https://ipapi.co/ip6)
+public_ipv4=$(curl -s https://httpbin.org/ip | grep -oP '(?<=origin": ")[^"]+')
+public_ipv6=$(curl -s https://httpbin.org/ipv6 | grep -oP '(?<=origin": ")[^"]+')
 
 # 输出结果
 echo "本地网络信息："
