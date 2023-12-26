@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# 检测操作系统版本
+os_version=$(lsb_release -rs)
+os_name=$(lsb_release -is)
+
+# 检查是否为 Ubuntu 18-22 或 Debian 9-12
+if [[ ("$os_name" == "Ubuntu" && "$os_version" =~ ^(18|19|20|21|22)$) || ("$os_name" == "Debian" && "$os_version" =~ ^(9|10|11|12)$) ]]
+then
+    echo "检测到支持的操作系统版本: $os_name $os_version"
+
+    # 提供源选择菜单
+    PS3="请选择一个源: "
+    options=("中科大源" "清华源" "阿里源" "AWS源" "退出")
+    select opt in "${options[@]}"
+    do
+        case $opt in
+            "中科大源")
+                echo "正在切换至中科大源..."
+                # 执行切换至中科大源的操作命令
+                sudo sed -i 's/http:\/\/.*\/ubuntu\//http:\/\/mirrors.ustc.edu.cn\/ubuntu\//g' /etc/apt/sources.list
+                echo "切换源完成！"
+                break
+                ;;
+            "清华源")
+                echo "正在切换至清华源..."
+                # 执行切换至清华源的操作命令
+                sudo sed -i 's/http:\/\/.*\/debian\//http:\/\/mirrors.tuna.tsinghua.edu.cn\/debian\//g' /etc/apt/sources.list
+                echo "切换源完成！"
+                break
+                ;;
+            "阿里源")
+                echo "正在切换至阿里源..."
+                # 执行切换至阿里源的操作命令
+                sudo sed -i 's/http:\/\/.*\/debian\//http:\/\/mirrors.aliyun.com\/debian\//g' /etc/apt/sources.list
+                echo "切换源完成！"
+                break
+                ;;
+            "AWS源")
+                echo "正在切换至AWS源..."
+                # 执行切换至AWS源的操作命令
+                sudo sed -i 's/http:\/\/.*\/debian\//http:\/\/mirrors.cloud.tencent.com\/debian\//g' /etc/apt/sources.list
+                echo "切换源完成！"
+                break
+                ;;
+            "退出")
+                echo "退出脚本"
+                exit 0
+                ;;
+            *)
+                echo "无效选项，请重新选择."
+                ;;
+        esac
+    done
+else
+    echo "不支持当前操作系统版本: $os_name $os_version"
+    exit 1
+fi
