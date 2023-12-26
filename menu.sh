@@ -57,6 +57,11 @@ function swapsh(){
 wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
 }
 
+#Nginx Proxy Manager一键部署脚本
+function npmsh(){
+wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+}
+
 #主菜单
 function start_menu(){
     clear
@@ -120,7 +125,10 @@ function start_menu(){
 	;;    
 	12 )
             swapsh
-	;;    
+	;;
+        21 ）
+	    npmsh
+        ;;
         0 )
             exit 1
         ;;
