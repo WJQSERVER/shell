@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# 获取IPv4地址
+ipv4=$(curl -s4 icanhazip.com)
+
+# 获取IPv6地址
+ipv6=$(curl -s6 icanhazip.com)
+
+# 输出IPv4和IPv6地址
+echo "IPv4地址: $ipv4"
+echo "IPv6地址: $ipv6"
