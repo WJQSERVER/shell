@@ -65,7 +65,7 @@ function start_menu(){
     green " FROM: https://github.com/WJQSERVER/shell "
     green " USE:  wget -O menu.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/menu.sh && chmod +x menu.sh && clear && ./menu.sh "
     yellow " =================================================="
-    green " 1. Docker和Docker-compose安装" 
+    green " 1. Unavailable" 
     green " 2. Unavailable"
     green " 3. Unavailable"
     green " 4. Unavailable" 
@@ -73,14 +73,14 @@ function start_menu(){
     green " 6. Unavailable"
     green " 7. Unavailable"
     yellow " --------------------------------------------------"
-    green " 11. Unavailable"
-    green " 12. Unavailable" 
+    green " 11. Docker和Docker-compose安装"
+    green " 12. SWAP一键安装/卸载脚本" 
     green " 13. Unavailable"
     green " 14. Unavailable"
     green " 15. Unavailable"
     green " 16. Unavailable"
     green " 17. Unavailable" 
-    green " 18. SWAP一键安装/卸载脚本"
+    green " 18. Unavailable"
     green " 19. Unavailable"
     yellow " --------------------------------------------------"
     green " 21. Unavailable"
@@ -115,7 +115,10 @@ function start_menu(){
         4 )
            clonesh
         ;;
-	18 )
+	11 )
+            dockersh
+	;;    
+	12 )
             swapsh
 	;;    
         0 )
