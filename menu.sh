@@ -40,13 +40,6 @@ blue(){
     echo -e "\033[34m\033[01m$1\033[0m"
 }
 
-#F2B一键安装脚本
-function f2bsh(){
-red "卸载请 运行 wget https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/uninstall.sh && bash uninstall.sh"
-wget https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/fail2ban.sh && bash fail2ban.sh 2>&1 | tee fail2ban.log
-red "卸载请 运行 wget https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/uninstall.sh && bash uninstall.sh"
-}
-
 #Docker及Docker-compose一键安装脚本
 function dockersh(){
 wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.sh && chmod +x docker.sh && clear && ./docker.sh
@@ -68,6 +61,11 @@ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v /dock
 echo "可以通过 http://<服务器IP>:9000 访问 Portainer。"
 }
 
+#网络信息查看
+function ipsh(){
+wget -O ipsh.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/ipsh.sh && chmod +x ipsh.sh && clear && ./ipsh.sh
+}
+
 #主菜单
 function start_menu(){
     clear
@@ -76,7 +74,7 @@ function start_menu(){
     green " FROM: https://github.com/WJQSERVER/shell "
     green " USE:  wget -O menu.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/menu.sh && chmod +x menu.sh && clear && ./menu.sh "
     yellow " =================================================="
-    green " 1. Unavailable" 
+    green " 1. 网络信息查看" 
     green " 2. Unavailable"
     green " 3. Unavailable"
     green " 4. Unavailable" 
@@ -115,7 +113,7 @@ function start_menu(){
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
         1 )
-           dockersh
+           ipsh
 	;;
         2 )
            iptsh
