@@ -6,7 +6,7 @@ local_ipv4=$(ip -4 addr show dev $interface | grep -oP '(?<=inet\s)\d+(\.\d+){3}
 local_ipv6=$(ip -6 addr show dev $interface | grep -oP '(?<=inet6\s)[\da-fA-F:]+')
 gateway=$(ip route | grep default | awk '{print $3}')
 subnet_mask=$(ip -4 addr show dev $interface | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
-dns_servers=$(cat /tmp/resolv.conf.auto | grep -oP '(?<=nameserver\s)\d+(\.\d+){3}')
+dns_servers=$(awk '/^nameserver/ {print $2}' /etc/resolv.conf)
 
 # 获取公网IP
 public_ipv4=$(curl -s https://httpbin.org/ip | grep -oP '(?<=origin": ")[^"]+')
