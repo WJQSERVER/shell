@@ -31,41 +31,39 @@ function start_menu(){
     green " HELP: https://www.blueskyxn.com/202104/4465.html "
     green " USE:  wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh "
     yellow " =================================================="
-    green " 1. IPV.SH ipv4/6优先级调整一键脚本·下载" 
-    green " 2. IPT.SH iptable一键脚本"
-    green " 3. SpeedTest-Linux 下载"
-    green " 4. Rclone&Fclone·下载" 
-    green " 5. ChangeSource Linux换源脚本·下载"
-    green " 6. Besttrace 路由追踪·下载"
-    green " 7. NEZHA.SH哪吒面板/探针"
+    green " 1. Unavailable" 
+    green " 2. Unavailable"
+    green " 3. Unavailable"
+    green " 4. Unavailable" 
+    green " 5. Unavailable"
+    green " 6. Unavailable"
+    green " 7. Unavailable"
     yellow " --------------------------------------------------"
-    green " 11. 获取本机IP"
-    green " 12. 安装最新BBR内核·使用YUM·仅支持CentOS" 
-    green " 13. 启动BBR FQ算法"
-    green " 14. 系统网络配置优化"
-    green " 15. Git 新版 安装·仅支持CentOS"
-    green " 16. 宝塔面板 自动磁盘挂载工具"
-    green " 17. BBR一键管理脚本" 
+    green " 11. Unavailable"
+    green " 12. Unavailable" 
+    green " 13. Unavailable"
+    green " 14. Unavailable"
+    green " 15. Unavailable"
+    green " 16. Unavailable"
+    green " 17. Unavailable" 
     green " 18. SWAP一键安装/卸载脚本"
-    green " 19. F2B一键安装脚本"
+    green " 19. Unavailable"
     yellow " --------------------------------------------------"
-    green " 21. Superbench 综合测试"
-    green " 22. MT.SH 流媒体解锁测试"
-    green " 23. Lemonbench 综合测试"
-    green " 24. UNIXbench 综合测试"
-    green " 25. 三网Speedtest测速"
-    green " 26. Memorytest 内存压力测试"
-    green " 27. Route-trace 路由追踪测试"
-    green " 28. YABS LINUX综合测试"
-    green " 29. Disk Test 硬盘&系统综合测试"
-    green " 210.TubeCheck Google/Youtube CDN分配节点测试"
-    green " 211.RegionRestrictionCheck 流媒体解锁测试"
+    green " 21. Unavailable"
+    green " 22. Unavailable"
+    green " 23. Unavailable"
+    green " 24. Unavailable"
+    green " 25. Unavailable"
+    green " 26. Unavailable"
+    green " 27. Unavailable"
+    green " 28. Unavailable"
+    green " 29. Unavailable"
     yellow " --------------------------------------------------"
-    green " 31. MTP&TLS 一键脚本"
-    green " 32. Rclone官方一键安装脚本"
-    green " 33. Aria2 最强安装与管理脚本"
+    green " 31. Unavailable"
+    green " 32. Unavailable"
+    green " 33. Unavailable"
     yellow " --------------------------------------------------"
-    green " 00. 宝塔面板综合安装脚本"
+    green " 00. Unavailable"
     green " =================================================="
     green " 0. 退出脚本"
     echo
@@ -82,87 +80,7 @@ function start_menu(){
 	;;
         4 )
            clonesh
-	;;
-        5 )
-           cssh
-	;;
-	6 )
-           gettrace
-	;;
-	7 )
-           nezha
-	;;
-	11 )
-           getip
-	;;
-	12 )
-           bbrnew
-	;;
-	13 )
-           bbrfq
-	;;
-	14 )
-           system-best
-	;;
-	15 )
-           yumgitsh
-	;;
-	16 )
-           btdisk
-	;;
-	17 )
-           tcpsh
-	;;
-	18 )
-           swapsh
-	;;
-	19 )
-           f2bsh
-	;;
-	21 )
-           superbench
-	;;
-	22 )
-           mtsh
-	;;
-	23 )
-           Lemonbench
-	;;
-	24 )
-           UNIXbench
-	;;
-	25 )
-           3speed
-	;;
-	26 )
-           memorytest
-	;;
-	27 )
-           rtsh
-	;;
-	28 )
-           yabssh
-	;;
-	29 )
-           disktestsh
-	;;
-	210 )
-	   tubecheck
-	;;
-	211 )
-	   RegionRestrictionCheck
-	;;
-	31 )
-           mtp
-	;;
-	32 )
-           rc
-	;;
-        33 )
-           aria
-	;;
-	00 )
-            btbox
+
         ;;
         0 )
             exit 1
