@@ -28,6 +28,10 @@ function dockersh(){
 wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.sh && chmod +x docker.sh && clear && ./docker.sh
 }
 
+#SWAP一键脚本
+function swapsh(){
+wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh && chmod +x swap.sh && clear && ./swap.sh
+
 #主菜单
 function start_menu(){
     clear
@@ -84,8 +88,10 @@ function start_menu(){
 	;;
         4 )
            clonesh
-
         ;;
+	18 )
+            swapsh
+	;;    
         0 )
             exit 1
         ;;
