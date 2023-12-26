@@ -23,6 +23,11 @@ wget https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/fail2ban.sh 
 red "卸载请 运行 wget https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/uninstall.sh && bash uninstall.sh"
 }
 
+#Docker及Docker-compose一键安装脚本
+function dockersh(){
+wget -O docker.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/docker.sh && chmod +x docker.sh && clear && ./docker.sh
+}
+
 #主菜单
 function start_menu(){
     clear
@@ -69,7 +74,7 @@ function start_menu(){
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
         1 )
-           ipvsh
+           docker
 	;;
         2 )
            iptsh
