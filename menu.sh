@@ -2,6 +2,21 @@
 # By WJQSERVER-STUDIO_WJQSERVER
 #https://github.com/WJQSERVER/shell
 
+# 显示免责声明
+echo "免责声明：请阅读并同意以下条款才能继续使用本程序。"
+echo "本程序仅供学习和参考使用，作者不对其完整性、准确性或实用性做出任何保证。"
+echo "使用本程序所造成的任何损失或损害，作者不承担任何责任。"
+echo
+
+# 显示确认提示
+read -p "您是否同意上述免责声明？(y/n): " confirm
+
+# 处理确认输入
+if [[ $confirm != [Yy] ]]; then
+    echo "您必须同意免责声明才能继续使用本程序。"
+    exit 1
+fi
+
 #彩色
 red(){
     echo -e "\033[31m\033[01m$1\033[0m"
