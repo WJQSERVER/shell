@@ -62,6 +62,12 @@ function npmsh(){
 wget -O nginxproxymanager.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/nginxproxymanager.sh && chmod +x nginxproxymanager.sh && clear && ./nginxproxymanager.sh
 }
 
+#Portainer中文版一键部署
+function portainersh(){
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v /dockerData/portainer:/data --restart=always --name portainer 6053537/portainer-ce:latest
+echo
+}
+
 #主菜单
 function start_menu(){
     clear
@@ -89,7 +95,7 @@ function start_menu(){
     green " 19. Unavailable"
     yellow " --------------------------------------------------"
     green " 21. Nginx Proxy Manager一键部署脚本"
-    green " 22. Unavailable"
+    green " 22. Portainer中文版一键部署"
     green " 23. Unavailable"
     green " 24. Unavailable"
     green " 25. Unavailable"
@@ -129,6 +135,9 @@ function start_menu(){
         21 )
 	    npmsh
         ;;
+	22 )
+            portainersh
+	;;    
         0 )
             exit 1
         ;;
