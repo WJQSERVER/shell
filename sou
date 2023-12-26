@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# 选择发行版及版本
+echo "请选择您的发行版和版本:"
+echo "1. Ubuntu 18.04"
+echo "2. Ubuntu 20.04"
+echo "3. Ubuntu 22.04"
+echo "4. Debian 9"
+echo "5. Debian 10"
+echo "6. Debian 11"
+echo "7. CentOS 7"
+echo "8. CentOS 8"
+echo "9. CentOS 9"
+read -p "请输入对应的数字: " choice
+
+case $choice in
+    1)
+        echo "您选择了 Ubuntu 18.04"
+        source_url="https://mirrors.ustc.edu.cn/ubuntu/"
+        ;;
+    2)
+        echo "您选择了 Ubuntu 20.04"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
+        ;;
+    3)
+        echo "您选择了 Ubuntu 22.04"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
+        ;;
+    4)
+        echo "您选择了 Debian 9"
+        source_url="https://mirrors.ustc.edu.cn/debian/"
+        ;;
+    5)
+        echo "您选择了 Debian 10"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/debian/"
+        ;;
+    6)
+        echo "您选择了 Debian 11"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/debian/"
+        ;;
+    7)
+        echo "您选择了 CentOS 7"
+        source_url="https://mirrors.ustc.edu.cn/centos/"
+        ;;
+    8)
+        echo "您选择了 CentOS 8"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/centos/"
+        ;;
+    9)
+        echo "您选择了 CentOS 9"
+        source_url="https://mirrors.tuna.tsinghua.edu.cn/centos/"
+        ;;
+    *)
+        echo "无效的选择"
+        exit 1
+        ;;
+esac
+
+# 备份原始源列表文件
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+# 创建新的源列表文件
+sudo bash -c "cat > /etc/apt/sources.list << EOF
+deb $source_url \$(lsb_release -cs) main restricted universe multiverse
+deb $source_url \$(lsb_release -cs)-updates main restricted universe multiverse
+deb $source_url \$(lsb_release -cs)-backports main restricted universe multiverse
+deb $source_url \$(lsb_release -cs)-security main restricted universe multiverse
+EOF"
+
+echo "源已成功切换为 $source_url"
+
+# 更新源列表
+sudo apt update
+
+echo "源列表已更新"
