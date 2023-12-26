@@ -26,10 +26,9 @@ red "卸载请 运行 wget https://raw.githubusercontent.com/FunctionClub/Fail2b
 #主菜单
 function start_menu(){
     clear
-    red " BlueSkyXN 综合工具箱 Linux Supported ONLY" 
-    green " FROM: https://github.com/BlueSkyXN/SKY-BOX "
-    green " HELP: https://www.blueskyxn.com/202104/4465.html "
-    green " USE:  wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh "
+    red " WJQserver Studio tools" 
+    green " FROM: https://github.com/WJQSERVER/shell "
+    green " USE:  wget -O menu.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/menu.sh && chmod +x menu.sh && clear && ./menu.sh "
     yellow " =================================================="
     green " 1. Unavailable" 
     green " 2. Unavailable"
