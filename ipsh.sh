@@ -10,7 +10,6 @@ dns_servers=$(cat /tmp/resolv.conf.auto | grep -oP '(?<=nameserver\s)\d+(\.\d+){
 
 # 获取公网IP
 public_ipv4=$(curl -s https://httpbin.org/ip | grep -oP '(?<=origin": ")[^"]+')
-public_ipv6=$(curl -s https://httpbin.org/ipv6 | grep -oP '(?<=origin": ")[^"]+')
 
 # 输出结果
 echo "本地网络信息："
@@ -21,6 +20,5 @@ echo "网关: $gateway"
 echo "子网掩码: $subnet_mask"
 echo "DNS服务器: $dns_servers"
 
-echo "公网IP："
 echo "IPv4地址: $public_ipv4"
-echo "IPv6地址: $public_ipv6"
+
