@@ -61,6 +61,7 @@ wget -O swap.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/swap.sh &
 function start_menu(){
     clear
     red " WJQserver Studio tools" 
+    green " 由WJQserver Studio提供的快捷工具箱 "
     green " FROM: https://github.com/WJQSERVER/shell "
     green " USE:  wget -O menu.sh https://raw.githubusercontent.com/WJQSERVER/shell/main/menu.sh && chmod +x menu.sh && clear && ./menu.sh "
     yellow " =================================================="
