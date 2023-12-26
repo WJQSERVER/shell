@@ -125,7 +125,7 @@ function start_menu(){
 	;;    
 	12 )
             swapsh
-	;;
+        ;;
         21 ）
 	    npmsh
         ;;
