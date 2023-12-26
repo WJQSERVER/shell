@@ -65,7 +65,7 @@ wget -O nginxproxymanager.sh https://raw.githubusercontent.com/WJQSERVER/shell/m
 #Portainer中文版一键部署
 function portainersh(){
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v /dockerData/portainer:/data --restart=always --name portainer 6053537/portainer-ce:latest
-echo
+echo "可以通过 http://<服务器IP>:9000 访问 Portainer。"
 }
 
 #主菜单
