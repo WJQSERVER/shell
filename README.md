@@ -1,3 +1,4 @@
+#项目已重构,本仓库已废弃
 由WJQserver Studio推出的快捷Linux工具箱
 # 声明
 
